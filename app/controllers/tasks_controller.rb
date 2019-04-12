@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   
-  protect_from_forgery :except => :create
+  skip_before_action :verify_authenticity_token
 
   # GET /tasks
   # GET /tasks.json
@@ -30,8 +30,8 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
-        format.json { render :show, status: :created, location: @task }
+        format.html { redirect_to tasks_url, notice: 'Task was successfully created.' }
+        format.json { render :index, status: :created, location: tasks_url }
       else
         format.html { render :new }
         format.json { render json: @task.errors, status: :unprocessable_entity }
