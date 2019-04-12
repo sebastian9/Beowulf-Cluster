@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Machines</h1>
+
+<p>Go to <%= link_to "Tasks", tasks_path %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ip</th>
+      <th>Status</th>
+      <th>Last Seen</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @machines.each do |machine| %>
+      <tr>
+        <td><%= machine.IP %></td>
+        <td><%= machine.status %></td>
+        <td><%= machine.updated_at.utc.in_time_zone('Eastern Time (US & Canada)').strftime('%m/%d/%Y %H:%M %p') %></td>
+        <td><%= link_to 'Show', machine %></td>
+        <td><%= link_to 'Edit', edit_machine_path(machine) %></td>
+        <td><%= link_to 'Destroy', machine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Machine', new_machine_path %>
