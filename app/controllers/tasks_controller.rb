@@ -17,19 +17,19 @@ class TasksController < ApplicationController
   # GET /tasks/new
   def new
     @task = Task.new
-    @free_machines = Machine.select('IP').where("status == \"Waiting\"")
+    @free_machines = Machine.select('IP').where("status LIKE \"Waiting\"")
   end
 
   # GET /tasks/1/edit
   def edit
-    @free_machines = Machine.select('IP').where("status == \"Waiting\"")
+    @free_machines = Machine.select('IP').where("status LIKE \"Waiting\"")
   end
 
   # POST /tasks
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
-    @free_machines = Machine.select('IP').where("status == \"Waiting\"")
+    @free_machines = Machine.select('IP').where("status LIKE \"Waiting\"")
 
     respond_to do |format|
       if @task.save
