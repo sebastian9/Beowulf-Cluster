@@ -17,7 +17,7 @@ Clone repository to web app server (e.g. Heroku) and run. Don’t forget databas
 
 MIT License
 
-Copyright (c) [year] [fullname]
+Copyright (c) 2019 SEBASTIÁN LÓPEZ SÁNCHEZ & JOSÉ MARÍA FERNÁNDEZ RODRÍGUEZ
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
