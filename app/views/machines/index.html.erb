@@ -7,6 +7,7 @@
 <table>
   <thead>
     <tr>
+      <th>ID</th>
       <th>IP</th>
       <th>Status</th>
       <th>Last Seen</th>
@@ -17,6 +18,7 @@
   <tbody>
     <% @machines.each do |machine| %>
       <tr>
+        <td><%= machine.id %></td>
         <td><%= machine.IP %></td>
         <td><%= machine.status %></td>
         <td><%= machine.updated_at.utc.in_time_zone('Eastern Time (US & Canada)').strftime('%m/%d/%Y %H:%M') %></td>
