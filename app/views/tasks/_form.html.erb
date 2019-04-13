@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label :status %>
-    <%= form.number_field :status, id: :task_status %>
+    <%= form.select  :status, ['Waiting', 'Working', 'Done'], id: :task_status %>
   </div>
   
   <div class="field">
     <%= form.label :machine %>
-    <%= form.collection_select :machine, @free_machines.order(:IP), :id, :IP, include_blank: true %>
+    <%= form.select :machine, @free_machines, include_blank: true %>
   </div>
 
   <div class="field">

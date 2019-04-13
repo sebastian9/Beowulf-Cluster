@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190412200747) do
+ActiveRecord::Schema.define(version: 20190413015623) do
 
   create_table "machines", force: :cascade do |t|
     t.string "IP"
@@ -21,6 +21,6 @@ ActiveRecord::Schema.define(version: 20190412200747) do
   end
 
 # Could not dump table "tasks" because of following StandardError
-#   Unknown type 'reference' for column 'machine'
+#   Unknown type '' for column 'machine'
 
 end

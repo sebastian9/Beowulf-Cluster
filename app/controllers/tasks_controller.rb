@@ -17,19 +17,19 @@ class TasksController < ApplicationController
   # GET /tasks/new
   def new
     @task = Task.new
-    @free_machines = Machine.select('IP').where("status LIKE 'Waiting'")
+    @free_machines = Machine.select('IP').where("status LIKE 'Waiting'").pluck(:IP)
   end
 
   # GET /tasks/1/edit
   def edit
-    @free_machines = Machine.select('IP').where("status LIKE 'Waiting'")
+    @free_machines = Machine.select('IP').where("status LIKE 'Waiting'").pluck(:IP)
   end
 
   # POST /tasks
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
-    @free_machines = Machine.select('IP').where("status LIKE 'Waiting'")
+    @free_machines = Machine.select('IP').where("status LIKE 'Waiting'").pluck(:IP)
 
     respond_to do |format|
       if @task.save
@@ -74,6 +74,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:status, :input, :output)
+      params.require(:task).permit(:status, :input, :output, :machine)
     end
 end
