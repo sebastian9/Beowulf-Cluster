@@ -25,7 +25,7 @@
         <td><%= task.machine %></td>
         <td><%= task.input %></td>
         <td><%= task.output %></td>
-        <td><%= task.updated_at.utc.in_time_zone('Eastern Time (US & Canada)').strftime('%m/%d/%Y %H:%M') %></td>
+        <td><%= task.updated_at.utc.in_time_zone('Mexico City').strftime('%d-%b-%Y %H:%M:%S') %></td>
         <td><%= link_to 'Show', task %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
         <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
